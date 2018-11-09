@@ -14,8 +14,8 @@ public class BillboardScript : MonoBehaviour {
         transform.LookAt(cam.transform);
         transform.forward = -transform.forward;
         transform.localRotation = Quaternion.Euler(0,
-                                                    transform.localRotation.eulerAngles.y,
-                                                    transform.localRotation.eulerAngles.z);
+                                  transform.localRotation.eulerAngles.y,
+                                  transform.localRotation.eulerAngles.z);
 
 	}
 }
