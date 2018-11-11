@@ -30,7 +30,7 @@ public class AlertState : IEnemyState {
             RaycastHit hit;
             Vector3 rayOrigin = new Vector3(myEnemy.transform.position.x, 0.5f, myEnemy.transform.position.z);
             Vector3 rayDirection = myEnemy.transform.forward * 100f;
-            if (Physics.Raycast(rayOrigin, rayDirection, out hit, 6f))
+            if (Physics.Raycast(rayOrigin, rayDirection, out hit))
             {
                 if(hit.collider.gameObject.tag == "Player")
                 {

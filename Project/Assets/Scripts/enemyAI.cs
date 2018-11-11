@@ -22,6 +22,8 @@ public class enemyAI : MonoBehaviour {
     public Transform[] waypoints;
     public AudioSource audioSource;
     public AudioClip gunshot;
+    public AudioClip explode;
+    public ParticleSystem explosion;
 
 
     private Vector3 healthScale;
@@ -61,11 +63,17 @@ public class enemyAI : MonoBehaviour {
         //Morir
         if (life < 0)
         {
+            Explode(gameObject.transform.position);
             gameObject.SetActive(false);
             gameController.instance.enemiesDead++;
         }
         
 	}
+
+    public void Explode(Vector3 position)
+    {
+        Instantiate(explosion, position, Quaternion.identity);
+    }
 
     public void Hit(float damage)
     {

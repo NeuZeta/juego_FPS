@@ -44,8 +44,15 @@ public class AttackState : IEnemyState {
         if (actualTimeBetweenShoots > myEnemy.timeBetweenShoots)
         {
             actualTimeBetweenShoots = 0f;
-            col.gameObject.GetComponent<PlayerLife>().Hit(myEnemy.damageForce);
-            myEnemy.audioSource.PlayOneShot(myEnemy.gunshot);
+            if (myEnemy)
+            {
+                if (col.gameObject.tag == "Player")
+                {
+                    col.gameObject.GetComponent<PlayerLife>().Hit(myEnemy.damageForce);
+                    myEnemy.audioSource.PlayOneShot(myEnemy.gunshot);
+                }
+                
+            }
         }
 
 

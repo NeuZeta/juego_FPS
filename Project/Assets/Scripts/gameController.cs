@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class gameController : MonoBehaviour {
@@ -8,7 +9,8 @@ public class gameController : MonoBehaviour {
     public static gameController instance;
     public GameObject victoryPanel;
     public GameObject gameOverPanel;
-
+    public Text totalEnemies, enemiesLeft;
+    
     [HideInInspector]
     public int enemiesDead = 0;
     [HideInInspector]
@@ -21,7 +23,7 @@ public class gameController : MonoBehaviour {
         instance = this;
         victoryPanel.SetActive(false);
         gameOverPanel.SetActive(false);
-
+        totalEnemies.text = enemies.Length.ToString();
 
     }
     void Update () {
@@ -39,6 +41,8 @@ public class gameController : MonoBehaviour {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+
+        enemiesLeft.text = (enemies.Length - enemiesDead).ToString();
 
 	}
 
